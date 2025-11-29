@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقاء بسيط - مشارك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="page user-page">
+    <main>
+      <header>
+        <div class="header-left">
+          <i class="fas fa-video"></i>
+          <h1>الغرفة <span class="room-id" id="roomIdLabel"></span></h1>
+        </div>
+        <span class="status-pill" id="connectionStatus">قبل الانضمام</span>
+      </header>
+
+      <section class="content user-call">
+        <div class="panel">
+          <div class="prejoin active" id="preJoin">
+            <h2>فحص الأجهزة</h2>
+            <video id="prejoinPreview" class="video-preview" autoplay playsinline muted></video>
+            <div class="audio-check">
+              <label><i class="fas fa-microphone"></i> مستوى الميكروفون</label>
+              <div class="meter">
+                <div class="meter-bar" id="audioLevel"></div>
+              </div>
+              <small id="audioStatus">اسمح بالوصول للميكروفون للبدء</small>
+            </div>
+            <div class="controls prejoin-controls">
+              <button id="togglePreMic" class="btn-icon" data-active="true">
+                <i class="fas fa-microphone"></i>
+                <span>ميكروفون</span>
+              </button>
+              <button id="togglePreCam" class="btn-icon" data-active="true">
+                <i class="fas fa-video"></i>
+                <span>كاميرا</span>
+              </button>
+            </div>
+            <button id="joinButton" class="btn-primary btn-large">
+              <i class="fas fa-sign-in-alt"></i>
+              <span>انضم للغرفة</span>
+            </button>
+          </div>
+
+          <div class="call-view" id="callView">
+            <div class="video-stage" id="videoStage">
+              <div class="video-grid" id="videoGrid"></div>
+              <div class="empty-state" id="emptyState">
+                <div class="pulse-dot"></div>
+                <p>في انتظار انضمام الآخرين...</p>
+              </div>
+            </div>
+            <div class="controls-bar">
+              <div class="controls">
+                <button id="toggleMic" class="btn-icon" data-active="true">
+                  <i class="fas fa-microphone"></i>
+                </button>
+                <button id="toggleCam" class="btn-icon" data-active="true">
+                  <i class="fas fa-video"></i>
+                </button>
+                <button id="toggleSelfView" class="btn-icon" data-active="true">
+                  <i class="fas fa-user-circle"></i>
+                </button>
+                <button id="leaveButton" class="btn-icon btn-danger" data-active="false">
+                  <i class="fas fa-phone-slash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Thank You Modal -->
+    <div class="modal-overlay" id="thankYouModal" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fas fa-heart"></i>
+          <h3>شكراً لك!</h3>
+        </div>
+        <div class="modal-body">
+          <p id="thankYouMessage"></p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-primary" id="closeThankYouModal">
+            <span id="closeButtonText"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/user.js"></script>
+  </body>
+</html>
+

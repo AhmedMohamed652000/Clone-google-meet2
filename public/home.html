@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لقاء بسيط - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="page home-page">
+    <main>
+      <header>
+        <div class="header-left">
+          <i class="fas fa-video"></i>
+          <h1>لقاء بسيط</h1>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="panel home-panel">
+          <div class="home-card">
+            <i class="fas fa-video home-icon"></i>
+            <h2>انضم إلى غرفة</h2>
+            <p>أدخل معرف الغرفة للانضمام إلى الاجتماع</p>
+            <form id="joinRoomForm">
+              <div class="input-group">
+                <i class="fas fa-door-open"></i>
+                <input 
+                  id="roomIdInput" 
+                  type="text" 
+                  placeholder="معرف الغرفة" 
+                  required 
+                  autocomplete="off"
+                  pattern="[A-Za-z0-9\-_]+"
+                  title="يمكن أن يحتوي معرف الغرفة على أحرف وأرقام وشرطات وشرطات سفلية فقط"
+                />
+              </div>
+              <button class="btn-primary btn-large" type="submit">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>انضم للغرفة</span>
+              </button>
+              <small id="formError" class="error-message"></small>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/js/home.js"></script>
+  </body>
+</html>
+
